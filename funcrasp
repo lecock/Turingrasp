@@ -1,0 +1,30 @@
+import outsrasp
+import time
+
+def mostrar(vector):
+	j=0
+	while j<<len(vector):
+		if j == 0:
+			pin = 26
+		if j == 1:
+			pin = 24
+		if j == 2:
+			pin = 22
+		if j == 3:
+			pin = 19
+		if j == 4:
+			pin = 18
+		if j == 5:
+			pin = 16
+		if j == 6:
+			pin = 12
+		if j == 7:
+			pin = 10
+		if j == 8:
+			pin = 8
+		if vector[j]==2:
+			outs.pin(pin,0)
+		else:
+			outs.pin(pin,vector[j])
+		j += 1
+	time.sleep(2)
