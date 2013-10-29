@@ -1,0 +1,7 @@
+import RPi.GPIO as GPIO #importa la libreria del raspberry para manejo del GPIO
+
+GPIO.setmode(GPIO.BOARD)
+# se define la funcion pinout para generar una salida   
+def pinout(k,valor):
+	GPIO.setup(k,GPIO.OUT) #define el pin k como salida
+	GPIO.output(k,valor) #escribe en el pin k y el valor definido
