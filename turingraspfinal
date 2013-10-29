@@ -1,0 +1,120 @@
+import time
+import funcrasp
+
+vector=[0,0,0,0,0,0,0,0,0] # para iniciar se apagan los nueve leds
+func.mostrar (vector) # muestra el vector
+vector=[0,1,1,0,2,2,2,2,2] # se define el vector de entrada
+func.mostrar (vector) # se muestra el vector de entrada
+
+i=0 # se inicializan las variables
+estado=0
+paso=0
+
+while (estado!=15): #estado 15 es paro 
+	if (estado==0 and vector[i]==2): # en el estado 0 se lee el valor de la entrada en la posicion i y si es 2
+		func.mostrar (vector)
+		paso=paso+1
+		estado=15 #pasa a paro
+	if (estado==0 and vector[i]==1): # en el estado 0 se lee el valor de la entrada en la posicion i y si es 1
+		vector[i]=2 # escribe un 2 en esa posicion
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		estado=11 # cambia al estado 11
+		i+=1 # se desplaza a la derecha
+	if (estado==11 and vector[i]!=2): #en el estado 11 lee el valor de la entrada en la posicion i y si no es 2
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i+=1 # se desplaza a la derecha
+		estado=11 # sigue en estado 11
+	if (estado==11 and vector[i]==2):  #en el estado 11 lee el valor de la entrada en la posicion i y si es 2
+		vector[i]=2 #escribe dos en la posicion 1
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i=i+1 # se desplaza a la derecha
+		estado=21 #cambia a estado 21
+	if (estado==21 and vector[i]!=2): #en el estado 21 lee el valor de la entrada en la posicion i y si no es 2
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i=i+1 # se desplaza a la derecha
+		estado=21 # sigue en estado 21
+	if (estado==21 and vector[i]==2):  #en el estado 21 lee el valor de la entrada en la posicion i y si es 2
+		vector[i]=1
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i=i-1 # se desplaza a la izq
+		estado=31 # cambia a estado 31
+	if (estado==31 and vector[i]!=2): #en el estado 31 lee el valor de la entrada en la posicion i y si no es 2
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i=i-1 # se desplaza a la izq
+		estado=31 # sigue en estado 31
+	if (estado==31 and vector[i]==2): 
+		vector[i]=2
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i=i-1
+		estado=41
+	if (estado==41 and vector[i]!=2): 
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i=i-1
+		estado=41
+	if (estado==41 and vector[i]==2):
+		vector[i]=1
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i+=1
+		estado=0
+	if (estado==0 and vector[i]==0): # en el estado 0 se lee el valor de la entrada en la posicion i y si es 0
+		vector[i]=2 # escribe un 2 en esa posicion
+		estado=10
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i+=1 # se desplaza a la derecha
+	if (estado==10 and vector[i]!=2): 
+		estado=10
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i+=1
+	if (estado==10 and vector[i]==2): 
+		vector[i]=2
+		estado=20
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i=i+1
+	if (estado==20 and vector[i]!=2): 
+		estado=20
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i=i+1
+	if (estado==20 and vector[i]==2): 
+		vector[i]=0
+		estado=30
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i=i-1
+	if (estado==30 and vector[i]!=2): 
+		estado=30
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i=i-1
+	if (estado==30 and vector[i]==2): 
+		vector[i]=2
+		estado=40
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i=i-1
+	if (estado==40 and vector[i]!=2): 
+		estado=40
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i=i-1
+	if (estado==40 and vector[i]==2):
+		vector[i]=0
+		func.mostrar (vector) # se muestra el vector de entrada
+		paso=paso+1
+		i+=1
+		estado=0
+	if(i==-4 and estado==40): estado=15
+	if(i==4 and estado==40): estado=15
+func.mostrar (vector)
